@@ -21,4 +21,5 @@ public class BaseC {
 	protected DesiredCapabilities dc;
 	protected String defaultWindow;
 	protected String currentWindow;
+	protected String keyWord;
 }

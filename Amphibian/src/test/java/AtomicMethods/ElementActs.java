@@ -1,8 +1,5 @@
 package AtomicMethods;
 
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +18,7 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import TestManagers.DriverManager;
+import TestManagers.GoogleSheetManager;
 import Utilities.ClipBoardUtil;
 import Utilities.FileUtilities;
 import io.appium.java_client.AppiumDriver;
@@ -29,7 +26,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class ElementActs extends DriverManager{
+public class ElementActs extends GoogleSheetManager{
 
 	public synchronized boolean wait(By loc)
 	{
@@ -542,7 +539,7 @@ public class ElementActs extends DriverManager{
 	        StringBuffer sb = new StringBuffer();
 	        //Files.lines(Paths.get(jspath), StandardCharsets.UTF_8).forEach(sb::append);
 	        
-			String script = sb.toString();
+			String script = sb.toString();   
 			script = script + "executeDrageAndDrop(arguments[0], arguments[1])";
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript(script, el, el1);

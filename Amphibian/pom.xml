@@ -88,7 +88,33 @@
 	    <artifactId>jsch</artifactId>
 	    <version>0.1.55</version>
 	</dependency>
-			
+			<dependency>
+				    <groupId>com.google.api-client</groupId>
+				    <artifactId>google-api-client</artifactId>
+				    <version>1.23.0</version>
+				</dependency>
+				<dependency>
+				    <groupId>com.google.oauth-client</groupId>
+				    <artifactId>google-oauth-client-jetty</artifactId>
+				    <version>1.23.0</version>
+				</dependency>
+				<dependency>
+				    <groupId>com.google.apis</groupId>
+				    <artifactId>google-api-services-sheets</artifactId>
+				    <version>v4-rev493-1.23.0</version>
+				</dependency>
+				<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-gmail -->
+				<dependency>
+				    <groupId>com.google.apis</groupId>
+				    <artifactId>google-api-services-gmail</artifactId>
+				    <version>v1-rev110-1.25.0</version>
+				</dependency>
+				<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+				<dependency>
+				    <groupId>javax.mail</groupId>
+				    <artifactId>mail</artifactId>
+				    <version>1.4</version>
+				</dependency>
   </dependencies>
   
   <build>

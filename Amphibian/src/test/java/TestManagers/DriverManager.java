@@ -28,6 +28,23 @@ import io.appium.java_client.ios.IOSDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverManager extends ReportManager{
+	public synchronized boolean initDriver(String path)
+	{
+		boolean res = false;
+		try {
+
+			dc = new DesiredCapabilities(
+					JsonUtils.readJson(FileUtilities.totalAbsPath(getConfig("appiumCapabilitiesDefault"),path)));
+		driver = new AndroidDriver<WebElement>(new URL(getConfig("appiumServerURL")), dc);
+		wait = new WebDriverWait(driver, Integer.valueOf(getConfig("driverexplicitwait")));
+		res = true;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return res;
+	}
 	
 	public synchronized void initBrowser()
 	{
@@ -46,6 +63,7 @@ public class DriverManager extends ReportManager{
 				proxy.setHttpProxy(getConfig("proxy"));
 				options.setCapability("proxy", proxy);
 			}
+			
 			//options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
 			Map<String, Object> prefs = new HashMap<String, Object>();
 			//prefs.put("profile.default_content_setting_values.notifications", 2);
@@ -61,6 +79,7 @@ public class DriverManager extends ReportManager{
 
 			//========================================================
 			ChromeDriverService services = new ChromeDriverService.Builder().withSilent(true).withLogFile(new File(FileUtilities.abs(getConfig("chromelogpath")))).build();
+			//driver = new ChromeDriver(options);
 			//driver = new ChromeDriver(services, options);
 			//driver = ThreadGuard.protect(new ChromeDriver(options));//Thread guard protects the ownership of the webdriver.
 			//System.out.println("Initiated webdriver.");

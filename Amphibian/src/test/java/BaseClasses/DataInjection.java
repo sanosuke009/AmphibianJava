@@ -8,5 +8,8 @@ public class DataInjection extends ElementActs{
 	public DataInjection(Scenario sc) {
 		scenario = sc;
 	}
-
+	 public void setKeyWord(String keyword)
+	 {
+		 keyWord = keyword;
+	 }
 }
