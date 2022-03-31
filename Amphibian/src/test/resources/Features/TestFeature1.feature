@@ -1,5 +1,5 @@
 @tag
-Feature: Test Feature 1 for Amphibian Framework
+Feature: Test Feature1 for Amphibian Framework
   I want to use this template for my feature file
 
   @tag2

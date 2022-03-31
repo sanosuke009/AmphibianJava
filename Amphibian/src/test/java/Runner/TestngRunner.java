@@ -6,7 +6,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = "src/test/resources/Features",
+		features = "src/test/resources/Features/TestFeature1.feature",
 		glue = {"StepDefs"},
 		tags = "",
 		plugin = {"json:Results/cucumberjson/cucumber.json"}
@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
 public class TestngRunner extends AbstractTestNGCucumberTests{
 	
 	@Override
-	@DataProvider(parallel=true)
+	@DataProvider(parallel=false)
 	public Object[][] scenarios()
 	{
 		return super.scenarios();

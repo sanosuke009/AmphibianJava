@@ -17,6 +17,7 @@ public class StepDefinitions{
 	@Before
 	public void startUp(Scenario sc)
 	{
+		System.out.println("Set Up");
 		di = new DataInjection(sc);
 		di.initBrowser();
 	}
@@ -24,18 +25,21 @@ public class StepDefinitions{
 	@After
 	public void tearDown()
 	{
+		System.out.println("Tear Down");
 		di.quit();
 	}
 	
 	@Given("I want to open {string} in browser")
 	public void openLink(String url)
 	{
+		System.out.println("url "+url);
 		Assert.assertTrue(di.getURL(url));
 	}
 	
 	@Then("I verify the {string} of video")
 	public void verifyTitle(String title)
 	{
+		System.out.println("title "+title);
 		YouTubePage yp = new YouTubePage(di);
 		Assert.assertTrue(yp.validateVideoTitle(title));
 	}

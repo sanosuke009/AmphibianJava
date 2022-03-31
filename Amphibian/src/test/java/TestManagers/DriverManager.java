@@ -115,7 +115,7 @@ public class DriverManager extends ReportManager{
 				.pollingEvery(Duration.ofSeconds(Integer.valueOf(getConfig("fluentwaitPolling"))))
 				.ignoring(NoSuchElementException.class)
 				.withMessage("Waiting for 10 seconds polling every 2 seconds.");
-		} catch (MalformedURLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
